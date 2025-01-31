@@ -209,7 +209,7 @@ export default function Dashboard () {
     function handleButtonClick() {
     // 1. Download the PDF report
         downloadPdfReport();
-        // handleOpenGate();
+        handleOpenGate();
 
 
     }

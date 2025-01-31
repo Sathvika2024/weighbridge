@@ -182,7 +182,7 @@ export default function Dashboard () {
           doc.text(22, 11, 'Weighing Station Report'); // X: 30 to leave space for the logo
       
           // Draw a border around the content
-          doc.rect(5, 22, 200, 120); // X, Y, Width, Height
+          doc.rect(5, 20, 200, 135); // X, Y, Width, Height
       
           // Report content inside the box
           doc.setFont('Mulish', 'normal');
@@ -198,6 +198,7 @@ export default function Dashboard () {
           doc.text(10, 120, `Number Plate: ${messages?.processedResult?.detectionResult?.result?.numberPlate || 'NA'}`);
           doc.text(10, 130, `Driving License No.: ${messages?.processedResult?.detectionResult?.result?.vehicle?.drivingLicenseNumber || 'NA'}`);
           doc.text(10, 140, `Driver Name: ${messages?.processedResult?.detectionResult?.result?.vehicle?.driverName || 'NA'}`);
+          doc.text(10, 150, `Time Stamp: ${timestamp?.time || 'NA'}`);
       
           // Save the report
           doc.save('weighing-station-report.pdf');
@@ -208,7 +209,7 @@ export default function Dashboard () {
     function handleButtonClick() {
     // 1. Download the PDF report
         downloadPdfReport();
-        handleOpenGate();
+        // handleOpenGate();
 
 
     }
@@ -285,7 +286,7 @@ export default function Dashboard () {
                 }}>
                     LIFT GATE-2
                 </LoadingButton> 
-                {messages?.loading &&
+                {!messages?.loading &&
                 <LoadingButton
                     width='50%'
                     size="medium"
